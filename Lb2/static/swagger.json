@@ -1,0 +1,152 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Product Store API",
+      "description": "API for managing products and orders in the Product Store",
+      "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+      "/products": {
+        "get": {
+          "summary": "Get list of products",
+          "responses": {
+            "200": {
+              "description": "A list of products",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Add a new product",
+          "parameters": [
+            {
+              "name": "product",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Product created",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Product storage limit reached"
+            }
+          }
+        }
+      },
+      "/products/{productId}": {
+        "put": {
+          "summary": "Update an existing product",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "product",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Product updated",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Product not found"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a product",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Product deleted"
+            },
+            "404": {
+              "description": "Product not found"
+            }
+          }
+        }
+      }
+    }
+  }
+  
