@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать компьютер</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Создай свой компьютер</h1>
+
+        <label for="model">Модель:</label>
+        <input type="text" id="model" placeholder="Введите модель" required>
+        <span class="error" id="modelError"></span>
+
+        <label for="manufacturer">Производитель:</label>
+        <input type="text" id="manufacturer" placeholder="Введите производителя" required>
+        <span class="error" id="manufacturerError"></span>
+
+        <label for="price">Цена:</label>
+        <input type="text" id="price" placeholder="Введите цену в числовом формате" required>
+        <span class="error" id="priceError"></span>
+
+        <button id="createComputerBtn">Создать компьютер</button>
+        <button id="showInfoBtn" disabled>Показать характеристики</button>
+
+        <div id="computerInfo" class="info"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
